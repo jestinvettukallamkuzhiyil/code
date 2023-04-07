@@ -13,7 +13,6 @@
 	<button id="button6" style="background-color: white; border: none; color: rgb(167, 167, 167); font-size: 10px; padding: 10px 20px;">6</button>
 	<button id="button7" style="background-color: white; border: none; color: rgb(174, 174, 174); font-size: 10px; padding: 10px 20px;">7</button>
 	<button id="button8" style="background-color: white; border: none; color: rgb(158, 158, 158); font-size: 10px; padding: 10px 20px;">8</button>
-	<button id="button9" style="background-color: white; border: none; color: rgb(163, 163, 163); font-size: 10px; padding: 10px 20px;">9</button>
 	
 
 	<textarea id="code-1" style="display: none;">
@@ -99,233 +98,336 @@
       }
 	</textarea>
   <textarea id="code-2" style="display: none;">
+    
     import java.io.*;
-import java.sql.*;
-public class student
-{
-  public static void main(String args[])
-  {
-  try
-   {
-     Class.forName("com.mysql.jdbc.Driver");
-     Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/student","root","root123");
-     Statement stmt=conn.createStatement();
-		
-     String sql;
-     ResultSet rs;
-     DataInputStream d=new DataInputStream(System.in);
-sql="select * from student";
-		rs=stmt.executeQuery(sql);
-int t;
-do
-     {
-      System.out.println("Enter the operation");
-      System.out.println("1.First Record");
-      System.out.println("2.Last Record");
-      
-      System.out.println("3.exit \n");
-      String m4=d.readLine();
-      t=Integer.parseInt(m4);
-      switch(t)
-{
-  case 1:
-      if(!rs.first()){
-      System.out.println("\nEmpty Table");
-      }
+    import java.sql.*;
+    public class student
+    {
+      public static void main(String args[])
+      {
+      try
+       {
+         Class.forName("com.mysql.jdbc.Driver");
+         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/student","root","root123");
+         Statement stmt=conn.createStatement();
+        
+         String sql;
+         ResultSet rs;
+         DataInputStream d=new DataInputStream(System.in);
+    sql="select * from student";
+        rs=stmt.executeQuery(sql);
+    int t;
+    do
+         {
+          System.out.println("Enter the operation");
+          System.out.println("1.First Record");
+          System.out.println("2.Last Record");
+          
+          System.out.println("3.exit \n");
+          String m4=d.readLine();
+          t=Integer.parseInt(m4);
+          switch(t)
+    {
+      case 1:
+          if(!rs.first()){
+          System.out.println("\nEmpty Table");
+          }
+          else
+          {
+          System.out.println(rs.getInt("id")+"\t"+rs.getString("name")+"\t\t"+rs.getInt("mark")+"\t"+rs.getString("grade"));
+          }
+      break;
+      case 2:
+      if(!rs.last())
+      System.out.println("\nTable Empty");
       else
       {
       System.out.println(rs.getInt("id")+"\t"+rs.getString("name")+"\t\t"+rs.getInt("mark")+"\t"+rs.getString("grade"));
       }
-	break;
-  case 2:
-	if(!rs.last())
-	System.out.println("\nTable Empty");
-	else
-	{
-	System.out.println(rs.getInt("id")+"\t"+rs.getString("name")+"\t\t"+rs.getInt("mark")+"\t"+rs.getString("grade"));
-	}
-	break;
-  
-  default:
-	System.out.println("\nInvalid Entry");
-	break;
-}
-}while(t!=3);
-stmt.close();
-conn.close();
-}
-    catch(SQLException se)
- {
- se.printStackTrace();
- }
-   catch(Exception e)
- {
-  e.printStackTrace();
- }
-System.out.println("goodbye");
-}
-}
+      break;
+      
+      default:
+      System.out.println("\nInvalid Entry");
+      break;
+    }
+    }while(t!=3);
+    stmt.close();
+    conn.close();
+    }
+        catch(SQLException se)
+     {
+     se.printStackTrace();
+     }
+       catch(Exception e)
+     {
+      e.printStackTrace();
+     }
+    System.out.println("goodbye");
+    }
+    }
+    
 
   </textarea>
 
   <textarea id="code-3" style="display: none;">
 
-    import java.sql.*;  
-    class Dbmd
-    {  
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-       static final String DB_URL = "jdbc:mysql://localhost/emp";
-          static final String USER = "root";
-       static final String PASS = "root123";
-    public static void main(String args[]){  
-    try{  
-    Connection con = null;
-       Statement stmt = null;   
-          Class.forName("com.mysql.jdbc.Driver");
-          con= DriverManager.getConnection(DB_URL,USER,PASS);
-      DatabaseMetaData dbmd=con.getMetaData();  
-      System.out.println("Driver Name: "+dbmd.getDriverName());  
-    System.out.println("Driver Version: "+dbmd.getDriverVersion());  
-    System.out.println("UserName: "+dbmd.getUserName());  
-    System.out.println("Database Product Name: "+dbmd.getDatabaseProductName());  
-    System.out.println("Database Product Version: "+dbmd.getDatabaseProductVersion());  
-     con.close();  
-      }
+    //complex.java
+    import java.rmi.*;
+    public  interface complex extends Remote
+    {
+    public String add(int r1,int r2,int i1,int i2)throws RemoteException;
+    public String sub(int r1,int r2,int i1,int i2)throws RemoteException;
+    };
+
+
+    //compleximpl.java
+    import java.rmi.*;
+    import java.rmi.server.*;
+    public class compleximpl extends UnicastRemoteObject implements complex
+    {
+    String res;
+    int isum,rsum;
+    public compleximpl()throws RemoteException
+    {
+    super();
+    }
+    public String add(int r1,int r2,int i1,int i2)throws RemoteException
+    {
+    rsum=r1+r2;
+    isum=i1+i2;
+    res=(String)(rsum+"+"+"i"+isum);
+    return res;
+    }
+
+    public String sub(int r1,int r2,int i1,int i2)throws RemoteException
+    {
+    rsum=r1-r2;
+    isum=i1-i2;
+    res=(String)(rsum+"+"+"i"+isum);
+    return res;
+    }
+    }
+
+
+    //reg.java
+    import java.rmi.*;
+    public class reg
+    {
+    public static void main(String arg[])
+    {
+    try
+    {
+    compleximpl ob=new compleximpl();
+    Naming.rebind("com",ob);
+    }
     catch(Exception e)
     {
-     System.out.println(e);
-    }  
-      } 
-     }
+    }
+    }
+    }
+
+
+    //client.java
+    import java.rmi.*;
+    import java.io.*;
+    public class client
+    {
+    public static void main(String arg[])
+    {
+    int c1,c2,r1,r2,ch;
+
+
+    try
+    {
+    DataInputStream dis=new DataInputStream(System.in);
+    complex c=(complex)Naming.lookup("com");
+    System.out.println("enter the first complex number");
+    c1=Integer.parseInt(dis.readLine());
+    r1=Integer.parseInt(dis.readLine());
+    System.out.println("enter the second complex number");
+    c2=Integer.parseInt(dis.readLine());
+    r2=Integer.parseInt(dis.readLine());
+    System.out.println("first complex number" +r1+"+"+"i"+c1);
+    System.out.println("second complex number" +r2+"+"+"i"+c2);
+    do
+    {
+    System.out.println("1.ADDITION");
+    System.out.println("2.SUBTRACTION");
+    System.out.println("3.EXIT");
+    System.out.println("ENTER YOUR CHOICE");
+    String s=dis.readLine();
+    ch=Integer.parseInt(s);
+    switch(ch)
+    {
+    case 1:
+      System.out.println("ADDED RESULT IS:" +c.add(r1,r2,c1,c2));
+      break;
+    case 2 :
+      System.out.println("SUBTRACTED IS:" +c.sub(r1,r2,c1,c2));
+      break;
+    case 3:System.exit(0);
+    }
+    }
+    while(ch<5);
+    }
+    catch(Exception e)
+    {
+    }
+    }
+    }
+
     
   </textarea>
   <textarea id="code-4" style="display: none;">
 
-    import java.sql.*;  
-class Resultset
-{  
-public static void main(String args[])
-{  
-try
-{  
-Connection con ;
- Statement stmt ;
- Class.forName("com.mysql.jdbc.Driver");
-con= DriverManager.getConnection("jdbc:mysql://localhost/students","root","root123");
-PreparedStatement ps=con.prepareStatement("select * from student");  
-ResultSet rs=ps.executeQuery();  
-ResultSetMetaData rsmd=rs.getMetaData();  
-System.out.println("Total columns: "+rsmd.getColumnCount());  
-System.out.println("Column Name of 1st column: "+rsmd.getColumnName(1));  
-System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(1));  
-con.close();  
-}
-catch(Exception e)
-{ System.out.println(e);
-}  
-}  
-}  
+    //bank.java
+    import java.rmi.*;
+    public  interface bank extends Remote
+    {
+    public int deposite(int amt)throws RemoteException;
+    public int withdraw(int amt)throws RemoteException;
+    public int balance()throws RemoteException;
+    };
+
+
+    //bankimpl.java
+    import java.rmi.*;
+    import java.rmi.server.*;
+    public class bankimpl extends UnicastRemoteObject implements bank
+    {
+    int c=0;
+    public bankimpl()throws RemoteException
+    {
+    super();
+    }
+    public int deposite(int amt)throws RemoteException
+    {
+    c=c+amt;
+    return c;
+    }
+
+    public int withdraw(int amt)throws RemoteException
+    {
+    c=c-amt;
+    return c;
+    }
+    public int balance()throws RemoteException
+    {
+    return c;
+    }
+    }
+
+
+    
+    //reg.java
+    import java.rmi.*;
+    public class reg
+    {
+    public static void main(String arg[])
+    {
+    try
+    {
+    bankimpl ob=new bankimpl();
+    Naming.rebind("bank",ob);
+    }
+    catch(Exception e)
+    {
+    }
+    }
+    }
+
+
+
+    //client.java 
+    import java.rmi.*;
+    import java.io.*;
+    public class client
+    {
+    public static void main(String arg[])
+    {
+    int c,act,b,amt;
+
+    int ch=0;
+
+    try
+    {
+    DataInputStream dis=new DataInputStream(System.in);
+    bank ar=(bank)Naming.lookup("bank");
+    System.out.println("accno");
+    act=Integer.parseInt(dis.readLine());
+
+    do
+    {
+
+    System.out.println("BANK OPERATION");
+    System.out.println("1.DEPOSITE");
+    System.out.println("2.WITHDRAW");
+    System.out.println("3.BALANCE");
+    System.out.println("4.EXIT");
+    System.out.println("ENTER YOUR CHOICE");
+    String s=dis.readLine();
+    ch=Integer.parseInt(s);
+
+    switch(ch)
+    {
+    case 1:System.out.println("Enter the amount to deposite");
+      amt=Integer.parseInt(dis.readLine());
+      c=ar.deposite(amt);
+      break;
+    case 2 :System.out.println("Enter the amount to be withdraw");
+      amt=Integer.parseInt(dis.readLine());
+      c=ar.withdraw(amt);
+      break;
+    case 3:System.out.println("");
+      c=ar.balance();
+      System.out.println("CURRENT BALANCE");
+      System.out.println("...............................");
+      System.out.println(+c);
+      break;
+
+    }
+    } 
+    while(ch<4);
+    }
+    catch(Exception e)
+    {
+    System.out.println(e);
+    }
+    }
+    }
+
 
   </textarea>
   <textarea id="code-5" style="display: none;">
-    import java.rmi.*;
-public  interface complex extends Remote
-{
-public String add(int r1,int r2,int i1,int i2)throws RemoteException;
-public String sub(int r1,int r2,int i1,int i2)throws RemoteException;
-};
-//compleximpl.java
-import java.rmi.*;
-import java.rmi.server.*;
-public class compleximpl extends UnicastRemoteObject implements complex
-{
-String res;
-int isum,rsum;
-public compleximpl()throws RemoteException
-{
-super();
-}
-public String add(int r1,int r2,int i1,int i2)throws RemoteException
-{
-rsum=r1+r2;
-isum=i1+i2;
-res=(String)(rsum+"+"+"i"+isum);
-return res;
-}
-
-public String sub(int r1,int r2,int i1,int i2)throws RemoteException
-{
-rsum=r1-r2;
-isum=i1-i2;
-res=(String)(rsum+"+"+"i"+isum);
-return res;
-}
-}
-//reg.java
-import java.rmi.*;
-public class reg
-{
-public static void main(String arg[])
-{
-try
-{
-compleximpl ob=new compleximpl();
-Naming.rebind("com",ob);
-}
-catch(Exception e)
-{
-}
-}
-}
-
-//client.java
-import java.rmi.*;
-import java.io.*;
-public class client
-{
-public static void main(String arg[])
-{
-int c1,c2,r1,r2,ch;
 
 
-try
-{
-DataInputStream dis=new DataInputStream(System.in);
-complex c=(complex)Naming.lookup("com");
-System.out.println("enter the first complex number");
-c1=Integer.parseInt(dis.readLine());
-r1=Integer.parseInt(dis.readLine());
-System.out.println("enter the second complex number");
-c2=Integer.parseInt(dis.readLine());
-r2=Integer.parseInt(dis.readLine());
-System.out.println("first complex number" +r1+"+"+"i"+c1);
-System.out.println("second complex number" +r2+"+"+"i"+c2);
-do
-{
-System.out.println("1.ADDITION");
-System.out.println("2.SUBTRACTION");
-System.out.println("3.EXIT");
-System.out.println("ENTER YOUR CHOICE");
-String s=dis.readLine();
-ch=Integer.parseInt(s);
-switch(ch)
-{
-case 1:
-	System.out.println("ADDED RESULT IS:" +c.add(r1,r2,c1,c2));
-	break;
-case 2 :
-	System.out.println("SUBTRACTED IS:" +c.sub(r1,r2,c1,c2));
-	break;
-case 3:System.exit(0);
-}
-}
-while(ch<5);
-}
-catch(Exception e)
-{
-}
-}
-} </textarea>
+    import java.sql.*;  
+    class Resultset
+    {  
+    public static void main(String args[])
+    {  
+    try
+    {  
+    Connection con ;
+     Statement stmt ;
+     Class.forName("com.mysql.jdbc.Driver");
+    con= DriverManager.getConnection("jdbc:mysql://localhost/students","root","root123");
+    PreparedStatement ps=con.prepareStatement("select * from student");  
+    ResultSet rs=ps.executeQuery();  
+    ResultSetMetaData rsmd=rs.getMetaData();  
+    System.out.println("Total columns: "+rsmd.getColumnCount());  
+    System.out.println("Column Name of 1st column: "+rsmd.getColumnName(1));  
+    System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(1));  
+    con.close();  
+    }
+    catch(Exception e)
+    { System.out.println(e);
+    }  
+    }  
+    }  
+
+
+  </textarea>
 
 <textarea id="code-6" style="display: none;">
   //bank.java
@@ -439,89 +541,100 @@ System.out.println(e);
 </textarea>
 
 <textarea id="code-7" style="display: none;">
-  //Student.java
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-public class student extends HttpServlet 
-{
-    public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
+
+
+    //Student.java
+    import java.io.*;
+    import javax.servlet.*;
+    import javax.servlet.http.*;
+    public class student extends HttpServlet 
     {
-        response.setContentType("text/html");
-        PrintWriter out=response.getWriter();
-        out.println("<html><center><h1>STUDENT DETAILS</h1><br><br>Roll no:"+request.getParameter("roll")+
-            "<br>Name:"+request.getParameter("name")+
-                "<br>Sex:"+request.getParameter("sex")+
-                "<br>Age:"+request.getParameter("age")+
-                "<br>Qualification:"+request.getParameter("quali")+
-                "<br>percentage:"+request.getParameter("per")+
-                "</center></html>");
+        public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
+        {
+            response.setContentType("text/html");
+            PrintWriter out=response.getWriter();
+            out.println("<html><center><h1>STUDENT DETAILS</h1><br><br>Roll no:"+request.getParameter("roll")+
+                "<br>Name:"+request.getParameter("name")+
+                    "<br>Sex:"+request.getParameter("sex")+
+                    "<br>Age:"+request.getParameter("age")+
+                    "<br>Qualification:"+request.getParameter("quali")+
+                    "<br>percentage:"+request.getParameter("per")+
+                    "</center></html>");
+        }
+        
     }
-    
-}
 
 
-//html
-<html>
-     <body>
-    <br><br><center><H1> STUDENT DETAILS</H1></center>
-        <form action="student" method="GET">
-            <table align=center>
-                <tr><td>Name:</td><td><input type="text" name="name"/></td></tr>
-                <tr><td>Roll:</td><td><input type="text" name="roll"/></td></tr>
-                 <tr><td>Age:</td><td><input type="text" name="age"/></td></tr>
-                 <tr><td>Female:</td><td><input type="radio" name="sex" value="female"/></td></tr>
-                 <tr><td>Male:</td><td><input type="radio" name="sex" value="male"/></td></tr>
-                 <tr><td>Percentage:</td><td><input type="text" name="Percentage"/></td></tr>
-                <tr><td>Qualification:</td><td><input type="text" name="quali"/></td></tr>
-                <tr><td></td><td><input type="submit" value="Submit"/></td></tr>
-</table>
-        </form>
-    </body>
-</html>
+    //html
+    <html>
+        <body>
+        <br><br><center><H1> STUDENT DETAILS</H1></center>
+            <form action="student" method="GET">
+                <table align=center>
+                    <tr><td>Name:</td><td><input type="text" name="name"/></td></tr>
+                    <tr><td>Roll:</td><td><input type="text" name="roll"/></td></tr>
+                    <tr><td>Age:</td><td><input type="text" name="age"/></td></tr>
+                    <tr><td>Female:</td><td><input type="radio" name="sex" value="female"/></td></tr>
+                    <tr><td>Male:</td><td><input type="radio" name="sex" value="male"/></td></tr>
+                    <tr><td>Percentage:</td><td><input type="text" name="Percentage"/></td></tr>
+                    <tr><td>Qualification:</td><td><input type="text" name="quali"/></td></tr>
+                    <tr><td></td><td><input type="submit" value="Submit"/></td></tr>
+    </table>
+            </form>
+        </body>
+    </html>
+
 
 </textarea>
 
 <textarea id="code-8" style="display: none;">
-  //fileoperation.java
+
+
   import java.io.*;
   import javax.servlet.*;
   import javax.servlet.http.*;
-  public class fileoperation extends HttpServlet 
+  import java.util.*;
+   public class SessionTrack extends HttpServlet
   {
-  public void service(HttpServletRequest req, HttpServletResponse res) 
-  throws ServletException, IOException  
-        {
-            res.setContentType("text/html");
-            PrintWriter pw = res.getWriter();
-             String name = req.getParameter("filename");
-   name=name+".txt";
-        BufferedReader br = new BufferedReader(new FileReader("c:/"+name));
-            String str;
-    pw.println("<html><br><br><br><center><H1>FILE CONTENTS</H1>");
-            while( (str = br.readLine()) != null )
-            {
-               pw.println(str + "<BR>");
-            }
-         br.close();
-            pw.close();
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException 
+  {
+   HttpSession session = request.getSession(true);
+           Date createTime = new Date(session.getCreationTime());
+            Date lastAccessTime = new Date(session.getLastAccessedTime());
+      
+     Integer visitCount=new Integer(0);
+        String visitCountKey=new String("visitCount");
+        String userIDKey=new String("userID");
+        String userID=new String("ABCD");
+      if (session.isNew())
+  {
+    
+           session.setAttribute(userIDKey, userID);
         }
+   else
+  {
+           visitCount = (Integer)session.getAttribute(visitCountKey);
+           visitCount = visitCount + 1;
+           userID = (String)session.getAttribute(userIDKey);
+        }
+        session.setAttribute(visitCountKey,  visitCount);
+  
+        
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+  
+        String docType;
+         docType = "<!doctype html"+ ">";
+              out.println("Number of visits</td>\n"+"" +docType +visitCount);
+                   out.println( "<h2 >Session Infomation</h2>" +
+                             "<table border=\"1\">"+
+                               "<th>Session info</th><th>value</th></tr>" +
+                                 "<tr>"+"<td>Creation Time</td>" +"<td>" + createTime + "</td></tr>"+
+                     "<tr>"+"<td>Time of Last Access</td>" +"<td>" + lastAccessTime + "</td> </tr>"+ "</table>"+"</body></html>");
+                   }
   }
   
-  // index.html
-  <html>
-  <body>
-    <br><br><H1><center>Getting File contents from the Server</center></H1>
-          <form action="fileoperation" method="GET">
-     <table align=center>
-  <tr><td> Enter File Name: </td><td>
-  <INPUT TYPE="text" NAME="filename"></td></tr>
-               <tr><td><INPUT TYPE ="submit" value="Submit" /></td> <td> 
-  <INPUT TYPE="reset" VALUE="Clear"></td></tr>
-  </table> 
-   </form>
-   </body>
-    </html>
   
   
 
