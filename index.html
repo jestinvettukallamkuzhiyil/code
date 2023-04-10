@@ -328,7 +328,7 @@
     try
     {
     bankimpl ob=new bankimpl();
-    Naming.rebind("bank",ob);
+    Naming.rebind("ban",ob);
     }
     catch(Exception e)
     {
@@ -352,7 +352,7 @@
     try
     {
     DataInputStream dis=new DataInputStream(System.in);
-    bank ar=(bank)Naming.lookup("bank");
+    bank ar=(bank)Naming.lookup("ban");
     System.out.println("accno");
     act=Integer.parseInt(dis.readLine());
 
