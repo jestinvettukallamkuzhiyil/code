@@ -132,45 +132,26 @@
   </textarea>
   <textarea id="code-4" style="display: none;">
 
-    <html>
-    <head>
-    <title>button</title>
-    <style>
-    .btn{
-    background-color :green;
-    font-size :20px;
-    cursor :pointer;
-    }
-    .btn:hover{
-    background-color :red;
-    }
-    </style>
-    </head>
-    <body>
-    <button class="btn" onmouseover="mouseOver()" onmouseout ="mouseOut()" >mouse over</button>
-    <script>
-    const btn=document.querySelector('.btn');
+    
+<html>
+<body>
+<button onMouseOver="mouseOver()" onMouseOut="mouseOut()" class="btn">mouse over</button>
+</body> 
+<script> 
+const btn=document.querySelector('.btn') 
+function mouseOver(e)
+{ 
+btn.style.backgroundColor="red" 
+btn.textContent="over"
+} 
+function mouseOut()
+{ 
+btn.style.backgroundColor="green" 
+btn.textContent="out"
+}
+</script>
+</html>
 
-    function mouseOver()
-    {
-    btn.style.backgroundColor="green";
-    btn.textContent ="over";
-
-    }
-
-    function mouseOut()
-    {
-    btn.style.backgroundColor="red";
-    btn.textContent ="out";
-
-    }
-
-    </script>
-
-    </body>
-
-
-    </html>
 
   </textarea>
   <textarea id="code-5" style="display: none;">
@@ -213,8 +194,7 @@
 
     <html> 
     <body> 
-    <script language="JavaScript"> alert("error!!!click 
-    ok to continue"); 
+    <script language="JavaScript"> alert("error!!!click ok to continue"); 
     </script> 
     </body> 
     </html>
@@ -227,8 +207,9 @@
 
     <html> 
     <script language="Javascript">function fact() 
-    { var f=1,i; var n=prompt("enter 
-    the number"); for(i=1;i<=n;i++) 
+    { 
+    var f=1,i; var n=prompt("enter the number"); 
+    for(i=1;i<=n;i++) 
     var f=f*i; 
     document.write(f) 
     } fact(); 
@@ -244,17 +225,18 @@
 
     <html> 
     <body> 
-    <script language="JavaScript"> var 
-    a=new Array(); var i,sum=0; var 
-    n=prompt("Enter the limit"); 
+    <script language="JavaScript"> 
+    var a=new Array(); var i,sum=0; 
+    var n=prompt("Enter the limit"); 
     for(i=0;i<n;i++) { 
-    a[i]=prompt("Enter the 
-    element"+i); 
-    } document.write("The array elements are,"); 
-    for(i=0;i<n;i++) document.write("<br>"+a[i]); 
-    for(i=0;i<n;i++) sum+=parseInt(a[i]); 
-    document.write("<br>The sum of 
-    array="+sum); 
+    a[i]=prompt("Enter the element"+i); 
+    } 
+    document.write("The array elements are,"); 
+    for(i=0;i<n;i++) 
+    document.write("<br>"+a[i]); 
+    for(i=0;i<n;i++) 
+    sum+=parseInt(a[i]); 
+    document.write("<br>The sum of array="+sum); 
     </script> 
     </body> 
     </html>
@@ -279,8 +261,7 @@
     </style> <script> function 
     handleSubmit(e){ 
     if(e.email.value===''||e.pass.value==='') 
-    alert('enter email and password 
-    correctly') 
+    alert('enter email and password correctly') 
     } 
     </script> 
     </head> 
@@ -397,13 +378,11 @@
     <form>
     Name:<input type="text" name="fname"><br>
     lastName:<input type="text" name="lname"><br>
-    gender:<input type="radio" value="male" 
-    name="sex">male<input type="radio" value="female"
-    name="sex">female<br>
+    gender:<input type="radio" value="male" name="sex">male
+    <input type="radio" value="female"name="sex">female<br>
     date of birth:<input type="date" name="date"><br>
     <tr><td>select country</td><td><select name="country"><br>
     <option></option>
-    
     <option>india</option>
     <option>uae</option>
     <option>usa</option>
@@ -426,9 +405,9 @@
   
     <html> 
     <script language="JavaScript"> 
-    var i,j,p; var c=prompt("Enter 
-    lower limit"); var b=prompt("Enter 
-    upper limit"); var a=parseInt(c); 
+    var i,j,p; var c=prompt("Enter lower limit"); 
+    var b=prompt("Enter upper limit"); 
+    var a=parseInt(c); 
     for(i=a;i<=b;i++) 
     { p=0; 
     for(j=2;j<=i/2;j++) 
@@ -531,6 +510,7 @@ email address is:&nbsp;<?php echo $_POST["email"];?>
     document.getElementById("button13").addEventListener("click", function() {
 			copyToClipboard("code-13");
 		});
+    
 		// Function to copy code to clipboard
 		function copyToClipboard(elementId) {
 			var code = document.getElementById(elementId).value;
