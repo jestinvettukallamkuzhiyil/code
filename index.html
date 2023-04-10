@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>jc</title>
+	<title>wc</title>
 	
 </head>
 <body>
@@ -13,499 +13,228 @@
 	<button id="button6" style="background-color: white; border: none; color: rgb(167, 167, 167); font-size: 10px; padding: 10px 20px;">6</button>
 	<button id="button7" style="background-color: white; border: none; color: rgb(174, 174, 174); font-size: 10px; padding: 10px 20px;">7</button>
 	<button id="button8" style="background-color: white; border: none; color: rgb(158, 158, 158); font-size: 10px; padding: 10px 20px;">8</button>
+  <button id="button9" style="background-color: white; border: none; color: rgb(158, 158, 158); font-size: 10px; padding: 10px 20px;">9</button>
+  <button id="button10" style="background-color: white; border: none; color: rgb(158, 158, 158); font-size: 10px; padding: 10px 20px;">10</button>
+  <button id="button11" style="background-color: white; border: none; color: rgb(158, 158, 158); font-size: 10px; padding: 10px 20px;">11</button>
+  <button id="button12" style="background-color: white; border: none; color: rgb(158, 158, 158); font-size: 10px; padding: 10px 20px;">12</button>
+  <button id="button13" style="background-color: white; border: none; color: rgb(158, 158, 158); font-size: 10px; padding: 10px 20px;">13</button>
 	
 
 	<textarea id="code-1" style="display: none;">
-      import java.sql.*;
-      import java.io.*;
-      class employee
-      {
-      public static void main(String args[])throws IOException
-      {
-      String sql,x;
-      Connection con;
-      Statement st;
-      int n,a,c;
-      ResultSet rs;
-      try
-      {
-      Class.forName("com.mysql.jdbc.Driver");
-      con=DriverManager.getConnection("jdbc:mysql://localhost/employee","root","root123");
-      st=con.createStatement();
-      DataInputStream dis=new DataInputStream(System.in);
-      do
-      {
-      System.out.println("Enter your choice");
-      System.out.println("1:Update\n2:Delete\n3:Display\n4:exit");
-      String z=dis.readLine();
-      n=Integer.parseInt(z);
-      switch(n)
-      {
+      
 
-      case 1: System.out.println("enter the id");
-        String s=dis.readLine();
+    <html > 
+    <head> 
+    </head> 
+    <body style="background-color: rgb(0,0,0); color: rgb(255,255,255);"> 
+    <table border="1"> 
+    <tr><th>style</th><th>Result</th></tr> 
+    <tr><th>headings</th><th><h1>A</h1><h2>A</h2>th></tr> 
+    <tr><td>Image</td><td><img src="image.jpg" width="50" height="50"></td></tr> 
+    <tr><th>Bold,italics,underline</th><th><b><i><u>Sometext</u></i></b></th></tr> 
+    <tr><th>text sliding</th><th><marquee>Sometext</marquee></th></tr> 
+    <tr><th>Breaking of words</th><th><br />some</br><br />text</br></th></tr> 
+    <tr><th>Paragraph</th><th><p>Sometext</p></th></tr> 
+    <tr><th>Teletype text</th><th><tt>Sometext</tt></th></tr> 
+    <tr><th>text in Center</th><th>sometext</th></tr> 
+    <tr><th>Horizontal line</th><th>Some<hr />Text</th></tr> 
+    <tr><th>Double quotes</th><th><q>Sometext</q></th></tr> 
+    <tr><th>Big letters</th><th><big>some text</big></th></tr> 
+    <tr><th>Small letters</th><th><small>Sometext</small></th></tr> 
+    <tr><th>Striking of words</th><th><s>Some text</s></th></tr> 
+    <tr><th>Subscript</th><th>X<sub>2</sub></th></tr> 
+    <tr><th>Super script</th><th>X<sup>2</sup></th></tr> 
+    </table> 
+    </body> 
+    </html>
 
-        a=Integer.parseInt(s);
-        System.out.println("enter the new salary");
 
-        String y=dis.readLine();
-        c=Integer.parseInt(y);
 
-        sql="Update employee SET salary="+c+"  where id="+a+"";
-        st.executeUpdate(sql);
-        break;
-      case 2:	
-        System.out.println("enter the id");
-        String f=dis.readLine();
-          a=Integer.parseInt(f);
-        sql="DELETE FROM employee WHERE id="+a+"";
-        st.executeUpdate(sql);
-        break;
-      case 3:
-        
-        sql="SELECT *FROM employee";
-        rs=st.executeQuery(sql);
-        while(rs.next())
-        {
-        a=rs.getInt("id");
-        c=rs.getInt("salary");
-        x=rs.getString("name");
-
-        System.out.println("id:"+a);
-        System.out.println("salary:"+c);
-        System.out.println("name:"+x);
-        
-        }
-              st.executeQuery(sql);
-              rs.close();
-        break;
-      case 4:
-              System.exit(0);
-        break;
-      }
-      }
-
-      while(n<5);
-      con.close();
-      st.close();
-      }
-              catch(Exception e)
-        {
-        e.printStackTrace();
-        }
-
-      }
-      }
 	</textarea>
+
+
   <textarea id="code-2" style="display: none;">
     
-    import java.io.*;
-    import java.sql.*;
-    public class student
-    {
-      public static void main(String args[])
-      {
-      try
-       {
-         Class.forName("com.mysql.jdbc.Driver");
-         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/student","root","root123");
-         Statement stmt=conn.createStatement();
-        
-         String sql;
-         ResultSet rs;
-         DataInputStream d=new DataInputStream(System.in);
-    sql="select * from student";
-        rs=stmt.executeQuery(sql);
-    int t;
-    do
-         {
-          System.out.println("Enter the operation");
-          System.out.println("1.First Record");
-          System.out.println("2.Last Record");
-          
-          System.out.println("3.exit \n");
-          String m4=d.readLine();
-          t=Integer.parseInt(m4);
-          switch(t)
-    {
-      case 1:
-          if(!rs.first()){
-          System.out.println("\nEmpty Table");
-          }
-          else
-          {
-          System.out.println(rs.getInt("id")+"\t"+rs.getString("name")+"\t\t"+rs.getInt("mark")+"\t"+rs.getString("grade"));
-          }
-      break;
-      case 2:
-      if(!rs.last())
-      System.out.println("\nTable Empty");
-      else
-      {
-      System.out.println(rs.getInt("id")+"\t"+rs.getString("name")+"\t\t"+rs.getInt("mark")+"\t"+rs.getString("grade"));
-      }
-      break;
-      
-      default:
-      System.out.println("\nInvalid Entry");
-      break;
-    }
-    }while(t!=3);
-    stmt.close();
-    conn.close();
-    }
-        catch(SQLException se)
-     {
-     se.printStackTrace();
-     }
-       catch(Exception e)
-     {
-      e.printStackTrace();
-     }
-    System.out.println("goodbye");
-    }
-    }
+      <html> 
+      <body> 
+      <font size="5"><i><u><b>HTML LISTS 
+      </b></u></i></font> 
+      <h3>Unordered List<br></h3> 
+      <ul> 
+      <li>Cake</li> 
+      <li>Roll</li> 
+      <li>Pizza</li> 
+      </ul> 
+      <ul type="circle"> 
+      <li>Cake</li> 
+      <li>Roll</li> 
+      <li>Pizza</li> 
+      </ul> 
+      <ul type="square"> 
+      <li>Cake</li> 
+      <li>Roll</li> 
+      <li>Pizza</li> 
+      </ul> 
+      <h3>Ordered List<br></h3> 
+      <ol> 
+      <li>Coffee</li> 
+      <li>Tea</li> 
+      <li>Milk</li> 
+      </ol> 
+      <ol type="a"> 
+      <li>Coffee</li> 
+      <li>Tea</li> 
+      <li>Milk</li> 
+      </ol> 
+      <ol type="A"> 
+      <li>Coffee</li> 
+      <li>Tea</li> 
+      <li>milk</li> 
+      </ol> 
+      <ol type="I"> 
+      <li>Coffee</li> 
+      <li>Tea</li> 
+      <li>Milk</li> 
+      </ol> 
+      <h3>Definition List<br></h3> 
+      <dl> 
+      <dt>HTML</dt> 
+      <dd>Hypertext Markup Language</dd> 
+      </dl> 
+      </body> 
+      </html>
+  
     
 
   </textarea>
 
   <textarea id="code-3" style="display: none;">
 
-    //complex.java
-    import java.rmi.*;
-    public  interface complex extends Remote
-    {
-    public String add(int r1,int r2,int i1,int i2)throws RemoteException;
-    public String sub(int r1,int r2,int i1,int i2)throws RemoteException;
-    };
+    <html><head> 
+      <title>train timetable</title> 
+      </head> 
+      <body><center><h2>Temperature</h2></center> 
+      <center><table border="1"> 
+      <tr><th>City</th><th>Minimum Temperature(c)</th> 
+      <th>Maximum Temperature(c)</th></tr> 
+      <tr><td>Kozhikode</td><td>37</td><td>38</td></tr> 
+      <tr><td>Kannur</td><td>36</td><td>39</td></tr> 
+      <tr><td>Cochin</td><td>34</td><td>36</td></tr> 
+      <tr><td>Malappuram</td><td>32</td><td>38</td></tr> 
+      <tr><td>Kasaragod</td><td>33</td><td>35</td></tr> 
+      <tr><td>Thrissur</td><td>34</td><td>36</td></tr> 
+      </table></center> 
+      </body> 
+      </html>
 
-
-    //compleximpl.java
-    import java.rmi.*;
-    import java.rmi.server.*;
-    public class compleximpl extends UnicastRemoteObject implements complex
-    {
-    String res;
-    int isum,rsum;
-    public compleximpl()throws RemoteException
-    {
-    super();
-    }
-    public String add(int r1,int r2,int i1,int i2)throws RemoteException
-    {
-    rsum=r1+r2;
-    isum=i1+i2;
-    res=(String)(rsum+"+"+"i"+isum);
-    return res;
-    }
-
-    public String sub(int r1,int r2,int i1,int i2)throws RemoteException
-    {
-    rsum=r1-r2;
-    isum=i1-i2;
-    res=(String)(rsum+"+"+"i"+isum);
-    return res;
-    }
-    }
-
-
-    //reg.java
-    import java.rmi.*;
-    public class reg
-    {
-    public static void main(String arg[])
-    {
-    try
-    {
-    compleximpl ob=new compleximpl();
-    Naming.rebind("com",ob);
-    }
-    catch(Exception e)
-    {
-    }
-    }
-    }
-
-
-    //client.java
-    import java.rmi.*;
-    import java.io.*;
-    public class client
-    {
-    public static void main(String arg[])
-    {
-    int c1,c2,r1,r2,ch;
-
-
-    try
-    {
-    DataInputStream dis=new DataInputStream(System.in);
-    complex c=(complex)Naming.lookup("com");
-    System.out.println("enter the first complex number");
-    c1=Integer.parseInt(dis.readLine());
-    r1=Integer.parseInt(dis.readLine());
-    System.out.println("enter the second complex number");
-    c2=Integer.parseInt(dis.readLine());
-    r2=Integer.parseInt(dis.readLine());
-    System.out.println("first complex number" +r1+"+"+"i"+c1);
-    System.out.println("second complex number" +r2+"+"+"i"+c2);
-    do
-    {
-    System.out.println("1.ADDITION");
-    System.out.println("2.SUBTRACTION");
-    System.out.println("3.EXIT");
-    System.out.println("ENTER YOUR CHOICE");
-    String s=dis.readLine();
-    ch=Integer.parseInt(s);
-    switch(ch)
-    {
-    case 1:
-      System.out.println("ADDED RESULT IS:" +c.add(r1,r2,c1,c2));
-      break;
-    case 2 :
-      System.out.println("SUBTRACTED IS:" +c.sub(r1,r2,c1,c2));
-      break;
-    case 3:System.exit(0);
-    }
-    }
-    while(ch<5);
-    }
-    catch(Exception e)
-    {
-    }
-    }
-    }
 
     
   </textarea>
   <textarea id="code-4" style="display: none;">
 
-    //bank.java
-    import java.rmi.*;
-    public  interface bank extends Remote
-    {
-    public int deposite(int amt)throws RemoteException;
-    public int withdraw(int amt)throws RemoteException;
-    public int balance()throws RemoteException;
-    };
+    <html>
+    <head>
+    <title>button</title>
+    <style>
+    .btn{
+    background-color :green;
+    font-size :20px;
+    cursor :pointer;
+    }
+    .btn:hover{
+    background-color :red;
+    }
+    </style>
+    </head>
+    <body>
+    <button class="btn" onmouseover="mouseOver()" onmouseout ="mouseOut()" >mouse over</button>
+    <script>
+    const btn=document.querySelector('.btn');
 
+    function mouseOver()
+    {
+    btn.style.backgroundColor="green";
+    btn.textContent ="over";
 
-    //bankimpl.java
-    import java.rmi.*;
-    import java.rmi.server.*;
-    public class bankimpl extends UnicastRemoteObject implements bank
-    {
-    int c=0;
-    public bankimpl()throws RemoteException
-    {
-    super();
-    }
-    public int deposite(int amt)throws RemoteException
-    {
-    c=c+amt;
-    return c;
-    }
-
-    public int withdraw(int amt)throws RemoteException
-    {
-    c=c-amt;
-    return c;
-    }
-    public int balance()throws RemoteException
-    {
-    return c;
-    }
     }
 
+    function mouseOut()
+    {
+    btn.style.backgroundColor="red";
+    btn.textContent ="out";
 
-    
-    //reg.java
-    import java.rmi.*;
-    public class reg
-    {
-    public static void main(String arg[])
-    {
-    try
-    {
-    bankimpl ob=new bankimpl();
-    Naming.rebind("ban",ob);
-    }
-    catch(Exception e)
-    {
-    }
-    }
     }
 
+    </script>
+
+    </body>
 
 
-    //client.java 
-    import java.rmi.*;
-    import java.io.*;
-    public class client
-    {
-    public static void main(String arg[])
-    {
-    int c,act,b,amt;
-
-    int ch=0;
-
-    try
-    {
-    DataInputStream dis=new DataInputStream(System.in);
-    bank ar=(bank)Naming.lookup("ban");
-    System.out.println("accno");
-    act=Integer.parseInt(dis.readLine());
-
-    do
-    {
-
-    System.out.println("BANK OPERATION");
-    System.out.println("1.DEPOSITE");
-    System.out.println("2.WITHDRAW");
-    System.out.println("3.BALANCE");
-    System.out.println("4.EXIT");
-    System.out.println("ENTER YOUR CHOICE");
-    String s=dis.readLine();
-    ch=Integer.parseInt(s);
-
-    switch(ch)
-    {
-    case 1:System.out.println("Enter the amount to deposite");
-      amt=Integer.parseInt(dis.readLine());
-      c=ar.deposite(amt);
-      break;
-    case 2 :System.out.println("Enter the amount to be withdraw");
-      amt=Integer.parseInt(dis.readLine());
-      c=ar.withdraw(amt);
-      break;
-    case 3:System.out.println("");
-      c=ar.balance();
-      System.out.println("CURRENT BALANCE");
-      System.out.println("...............................");
-      System.out.println(+c);
-      break;
-
-    }
-    } 
-    while(ch<4);
-    }
-    catch(Exception e)
-    {
-    System.out.println(e);
-    }
-    }
-    }
-
+    </html>
 
   </textarea>
   <textarea id="code-5" style="display: none;">
 
-
-    import java.sql.*;
-    class Dbmd
-    {
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/emp";
-    static final String USER = "root";
-    static final String PASS = "root123";
-    public static void main(String args[]){
-    try{
-    Connection con = null;
-    Statement stmt = null;
-    Class.forName("com.mysql.jdbc.Driver");
-    con= DriverManager.getConnection(DB_URL,USER,PASS);
-    DatabaseMetaData dbmd=con.getMetaData();
-    System.out.println("Driver Name: "+dbmd.getDriverName());
-    System.out.println("Driver Version: "+dbmd.getDriverVersion());
-    System.out.println("UserName: "+dbmd.getUserName());
-    System.out.println("Database Product Name: "+dbmd.getDatabaseProductName());
-    System.out.println("Database Product Version: "+dbmd.getDatabaseProductVersion());
-    con.close();
-    }
-    catch(Exception e)
-    {
-    System.out.println(e);
+      <html> 
+      <head> 
+      <title>Mathematical Expression</title> 
+      <Script language="javascript"> 
+      function math() 
+      { var x=document.form1.exptext.value; 
+      var result=eval(x); 
+      document.form1.resulttext.value=result; 
+      } 
+      </script> 
+      </head> 
+      <body> 
+      <form name="form1"> 
+      <table> 
+      <tr> 
+      <td>Expression</td> 
+      <td><input type="text" name="exptext"/></td> 
+      </tr> 
+      <tr> 
+      <td></td><td><input type="button" value="calculate" onclick="math()"/></td> 
+      </tr> 
+      <tr> 
+      <td>Result</td> 
+      <td><input type="text" name="resulttext"/></td> 
+      </tr> 
+      </table> 
+      </form> 
+      </body> 
+      </html>
     
-    }
-    }
-    }
+
 
   </textarea>
 
 <textarea id="code-6" style="display: none;">
 
-  
-  import java.sql.*;  
-  class Resultset
-  {  
-  public static void main(String args[])
-  {  
-  try
-  {  
-  Connection con ;
-   Statement stmt ;
-   Class.forName("com.mysql.jdbc.Driver");
-  con= DriverManager.getConnection("jdbc:mysql://localhost/students","root","root123");
-  PreparedStatement ps=con.prepareStatement("select * from student");  
-  ResultSet rs=ps.executeQuery();  
-  ResultSetMetaData rsmd=rs.getMetaData();  
-  System.out.println("Total columns: "+rsmd.getColumnCount());  
-  System.out.println("Column Name of 1st column: "+rsmd.getColumnName(1));  
-  System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(1));  
-  con.close();  
-  }
-  catch(Exception e)
-  { System.out.println(e);
-  }  
-  }  
-  }  
+    <html> 
+    <body> 
+    <script language="JavaScript"> alert("error!!!click 
+    ok to continue"); 
+    </script> 
+    </body> 
+    </html>
+ 
 
 
 </textarea>
 
 <textarea id="code-7" style="display: none;">
 
-
-    //Student.java
-    import java.io.*;
-    import javax.servlet.*;
-    import javax.servlet.http.*;
-    public class student extends HttpServlet 
-    {
-        public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
-        {
-            response.setContentType("text/html");
-            PrintWriter out=response.getWriter();
-            out.println("<html><center><h1>STUDENT DETAILS</h1><br><br>Roll no:"+request.getParameter("roll")+
-                "<br>Name:"+request.getParameter("name")+
-                    "<br>Sex:"+request.getParameter("sex")+
-                    "<br>Age:"+request.getParameter("age")+
-                    "<br>Qualification:"+request.getParameter("quali")+
-                    "<br>percentage:"+request.getParameter("per")+
-                    "</center></html>");
-        }
-        
-    }
-
-
-    //html
-    <html>
-        <body>
-        <br><br><center><H1> STUDENT DETAILS</H1></center>
-            <form action="student" method="GET">
-                <table align=center>
-                    <tr><td>Name:</td><td><input type="text" name="name"/></td></tr>
-                    <tr><td>Roll:</td><td><input type="text" name="roll"/></td></tr>
-                    <tr><td>Age:</td><td><input type="text" name="age"/></td></tr>
-                    <tr><td>Female:</td><td><input type="radio" name="sex" value="female"/></td></tr>
-                    <tr><td>Male:</td><td><input type="radio" name="sex" value="male"/></td></tr>
-                    <tr><td>Percentage:</td><td><input type="text" name="per"/></td></tr>
-                    <tr><td>Qualification:</td><td><input type="text" name="quali"/></td></tr>
-                    <tr><td></td><td><input type="submit" value="Submit"/></td></tr>
-    </table>
-            </form>
-        </body>
+    <html> 
+    <script language="Javascript">function fact() 
+    { var f=1,i; var n=prompt("enter 
+    the number"); for(i=1;i<=n;i++) 
+    var f=f*i; 
+    document.write(f) 
+    } fact(); 
+    </script> 
     </html>
+   
 
 
 </textarea>
@@ -513,50 +242,22 @@
 <textarea id="code-8" style="display: none;">
 
 
-  import java.io.*;
-  import javax.servlet.*;
-  import javax.servlet.http.*;
-  import java.util.*;
-   public class SessionTrack extends HttpServlet
-  {
-  public void doGet(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException 
-  {
-   HttpSession session = request.getSession(true);
-           Date createTime = new Date(session.getCreationTime());
-            Date lastAccessTime = new Date(session.getLastAccessedTime());
-      
-     Integer visitCount=new Integer(0);
-        String visitCountKey=new String("visitCount");
-        String userIDKey=new String("userID");
-        String userID=new String("ABCD");
-      if (session.isNew())
-  {
-    
-           session.setAttribute(userIDKey, userID);
-        }
-   else
-  {
-           visitCount = (Integer)session.getAttribute(visitCountKey);
-           visitCount = visitCount + 1;
-           userID = (String)session.getAttribute(userIDKey);
-        }
-        session.setAttribute(visitCountKey,  visitCount);
-  
-        
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-  
-        String docType;
-         docType = "<!doctype html"+ ">";
-              out.println("Number of visits</td>\n"+"" +docType +visitCount);
-                   out.println( "<h2 >Session Infomation</h2>" +
-                             "<table border=\"1\">"+
-                               "<th>Session info</th><th>value</th></tr>" +
-                                 "<tr>"+"<td>Creation Time</td>" +"<td>" + createTime + "</td></tr>"+
-                     "<tr>"+"<td>Time of Last Access</td>" +"<td>" + lastAccessTime + "</td> </tr>"+ "</table>"+"</body></html>");
-                   }
-  }
+    <html> 
+    <body> 
+    <script language="JavaScript"> var 
+    a=new Array(); var i,sum=0; var 
+    n=prompt("Enter the limit"); 
+    for(i=0;i<n;i++) { 
+    a[i]=prompt("Enter the 
+    element"+i); 
+    } document.write("The array elements are,"); 
+    for(i=0;i<n;i++) document.write("<br>"+a[i]); 
+    for(i=0;i<n;i++) sum+=parseInt(a[i]); 
+    document.write("<br>The sum of 
+    array="+sum); 
+    </script> 
+    </body> 
+    </html>
   
   
   
@@ -564,52 +265,231 @@
 </textarea>
 
 <textarea id="code-9" style="display: none;">
-  import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.util.*;
- public class SessionTrack extends HttpServlet
-{
-public void doGet(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException 
-{
- HttpSession session = request.getSession(true);
-         Date createTime = new Date(session.getCreationTime());
-          Date lastAccessTime = new Date(session.getLastAccessedTime());
-    
-   Integer visitCount=new Integer(0);
-      String visitCountKey=new String("visitCount");
-      String userIDKey=new String("userID");
-      String userID=new String("ABCD");
-    if (session.isNew())
-{
   
-         session.setAttribute(userIDKey, userID);
-      }
- else
-{
-         visitCount = (Integer)session.getAttribute(visitCountKey);
-         visitCount = visitCount + 1;
-         userID = (String)session.getAttribute(userIDKey);
-      }
-      session.setAttribute(visitCountKey,  visitCount);
+    <html> 
+    <head> 
+    <title>Document</title> 
+    <style> .form{ 
+    display: grid; 
+    place-items: center; 
+    } 
+    .form>input{ border: 4px 
+    solid #5194a5; 
+    } 
+    </style> <script> function 
+    handleSubmit(e){ 
+    if(e.email.value===''||e.pass.value==='') 
+    alert('enter email and password 
+    correctly') 
+    } 
+    </script> 
+    </head> 
+    <body > 
+    <form class="form" > 
+    <label for="email">Email</label> 
+    <input name="email" type="email" id="email"> 
+    <label for="password">Password</label> 
+    <input name="pass" id="password" type="password"> 
+    <input type="submit" value="submit" onclick="handleSubmit(this.form)"> 
+    </form> 
+    </body> 
+    </html>
 
-      
-      response.setContentType("text/html");
-      PrintWriter out = response.getWriter();
 
-      String docType;
-       docType = "<!doctype html"+ ">";
-            out.println("Number of visits</td>\n"+"" +docType +visitCount);
-                 out.println( "<h2 >Session Infomation</h2>" +
-                           "<table border=\"1\">"+
-                             "<th>Session info</th><th>value</th></tr>" +
-                               "<tr>"+"<td>Creation Time</td>" +"<td>" + createTime + "</td></tr>"+
-                   "<tr>"+"<td>Time of Last Access</td>" +"<td>" + lastAccessTime + "</td> </tr>"+ "</table>"+"</body></html>");
-                 }
-}
 
 </textarea>
+
+<textarea id="code-10" style="display: none;">
+  
+  college.html 
+  <html> 
+  <frameset rows="40%,60%"> 
+  <frame src="frame1.html"> <frame 
+  src="frame2.html"> 
+  </frameset> 
+  </html> 
+
+
+
+  /* frame1.html */
+  
+
+  <html> 
+  <body background="abc.jpg" height="400" width="300"> 
+  <font face="arial" color="red" size="6"> 
+  <center><b><u>NAVAJYOTHI COLLEGE</u></b></center> 
+  </center><b>CHERUPUZHA</b></center></font> 
+  <font face="AR BLANCA" color="black" size="6"> 
+  <caption><b><u>About us </u></b></caption></font><br> 
+  <font size="5" color="black"><br> 
+  <b>Navajyothi is an arts and science college affiliated to kannur university....</b></font> 
+  <font face="AR BLANCA" color="orange" size="6"> 
+  <caption><b><u>details</u></b></caption></font><br> 
+  </html> 
+
+
+
+
+  /* frame2.html*/ 
+
+
+
+  <html> 
+  <body background="xyz.jpg" height="400" width="300"> 
+  <font size="5"><br> 
+  Click on links for more details 
+  <ol> 
+  <li><a href="frame1.html">College</a></li><br> 
+  </ol> 
+  </font> 
+  </body> 
+  </html>
+
+
+</textarea>
+
+<textarea id="code-11" style="display: none;">
+  
+    <script language="javascript">
+    function check(f)
+    {
+    var i=0;
+    if(f.fname.value=="")
+    {
+    alert ("name can't be blank");
+    }
+    if(f.lname.value=="")
+    {
+    alert("enter the last name");
+    }
+    if(f.fname.value=="")
+    {
+    alert ("name can't be blank");
+    }
+    20
+    if(f.sex[0].checked==""&& f.sex[1].checked=="")
+    { alert("enter the gender");
+    }
+    if(f.date.value=="")
+    {
+    alert ("enter date");
+    }
+    if(f.country.value=="")
+    {
+    alert("select the country");
+    }
+    if(f.pass.value=="")
+    {
+    alert("enter the password");
+    }
+    if(f.cpass.value=="")
+    {
+    alert("re enter the password");
+    } 
+    21
+    if(f.pass.value!==f.cpass.value)
+    { 
+    alert("password not matching");
+    }
+    }
+    </script>
+    <html>
+    <form>
+    Name:<input type="text" name="fname"><br>
+    lastName:<input type="text" name="lname"><br>
+    gender:<input type="radio" value="male" 
+    name="sex">male<input type="radio" value="female"
+    name="sex">female<br>
+    date of birth:<input type="date" name="date"><br>
+    <tr><td>select country</td><td><select name="country"><br>
+    <option></option>
+    
+    <option>india</option>
+    <option>uae</option>
+    <option>usa</option>
+    </select></td></tr><br>
+    <tr><td>password:</td>
+    <td><input type="password" name="pass"></td></tr><br>
+    <tr><td>confirm password</td>
+    <td><input type="password" name="cpass"></td></tr><br>
+    </center>
+    <center><input type="button" value="cancel" name="cancel">
+    <input type="submit" value="submit" onClick="check(this.form)">
+    </center>
+    </form>
+    </html>
+
+
+</textarea>
+
+<textarea id="code-12" style="display: none;">
+  
+    <html> 
+    <script language="JavaScript"> 
+    var i,j,p; var c=prompt("Enter 
+    lower limit"); var b=prompt("Enter 
+    upper limit"); var a=parseInt(c); 
+    for(i=a;i<=b;i++) 
+    { p=0; 
+    for(j=2;j<=i/2;j++) 
+     { 
+    if(i%j==0) 
+    p=1; 
+     } 
+    if(p==0) document.write(i+","); 
+    } 
+    </script> 
+    <body> 
+    </body> 
+    </html>
+
+
+</textarea>
+
+<textarea id="code-13" style="display: none;">
+  
+  //13./* form .php*/ 
+
+
+
+  <?php
+?> 
+<html> 
+<head> 
+<title>Form processing</title> 
+</head> 
+<body> 
+<form action="welcome.php" method="post"> 
+Name:<input type="text" name="name"><br> 
+email:<input type="text" name="email"><br> 
+<input type="submit"> 
+</form> 
+</body> 
+</html> 
+
+
+
+/* welcome.php*/ 
+
+
+
+
+<?php 
+?> 
+<html> 
+<body> 
+Welcome &nbsp;<?php echo $_POST["name"];?><br> your 
+email address is:&nbsp;<?php echo $_POST["email"];?> 
+</body> 
+</html>
+
+
+
+</textarea>
+
+
+
+
 	<script>
 		// Add click event listener to each button
 		document.getElementById("button1").addEventListener("click", function() {
@@ -638,6 +518,18 @@ public void doGet(HttpServletRequest request, HttpServletResponse response)
 		});
     document.getElementById("button9").addEventListener("click", function() {
 			copyToClipboard("code-9");
+		});
+    document.getElementById("button10").addEventListener("click", function() {
+			copyToClipboard("code-10");
+		});
+    document.getElementById("button11").addEventListener("click", function() {
+			copyToClipboard("code-11");
+		});
+    document.getElementById("button12").addEventListener("click", function() {
+			copyToClipboard("code-12");
+		});
+    document.getElementById("button13").addEventListener("click", function() {
+			copyToClipboard("code-13");
 		});
 		// Function to copy code to clipboard
 		function copyToClipboard(elementId) {
