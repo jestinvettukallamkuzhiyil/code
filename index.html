@@ -130,6 +130,8 @@
 
     
   </textarea>
+
+  
   <textarea id="code-4" style="display: none;">
 
     
@@ -161,7 +163,8 @@ btn.textContent="out"
       <title>Mathematical Expression</title> 
       <Script language="javascript"> 
       function math() 
-      { var x=document.form1.exptext.value; 
+      { 
+      var x=document.form1.exptext.value; 
       var result=eval(x); 
       document.form1.resulttext.value=result; 
       } 
@@ -194,7 +197,8 @@ btn.textContent="out"
 
     <html> 
     <body> 
-    <script language="JavaScript"> alert("error!!!click ok to continue"); 
+    <script language="JavaScript"> 
+      alert("error!!!click ok to continue"); 
     </script> 
     </body> 
     </html>
@@ -259,8 +263,8 @@ btn.textContent="out"
     .form>input{ border: 4px 
     solid #5194a5; 
     } 
-    </style> <script> function 
-    handleSubmit(e){ 
+    </style> <script> 
+    function handleSubmit(e){ 
     if(e.email.value===''||e.pass.value==='') 
     alert('enter email and password correctly') 
     } 
