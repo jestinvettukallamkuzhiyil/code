@@ -118,18 +118,20 @@ print("the G.C.D. is", compute_gcd(num1,num2))
 </textarea>
 
 <textarea id="code-7" style="display: none;">
-try:
-f1=open(1.txt',"r")
-f2=open("2.txt","w")
-for line in f1:
- f2.write(line.upper())
-except EOFError:
-print('EOFError')
-except NameError:
-print("NameError Occurred and Handled")
-except FileNotFoundError:
-print('FileNotFoundError')
-
+	f1 ="1.txt"
+	f2 ="2.txt"
+	try:
+		with open(f1, "r") as file:
+			data = file.read()
+		with open(f2, "a") as file:
+			file.write(data.upper())
+		print('Completed')
+	except EOFError: 
+		print('EOFError') 
+	except NameError: 
+		print("NameError Occurred and Handled") 
+	except FileNotFoundError: 
+		print(f"The file {file_to_read} was not found.")
 </textarea>
 
 <textarea id="code-8" style="display: none;">
