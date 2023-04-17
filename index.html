@@ -15,10 +15,7 @@
 	<button id="button8" style="background-color: white; border: none; color: rgb(206, 206, 206); font-size: 10px; padding: 10px 20px;">8</button>
   <button id="button9" style="background-color: white; border: none; color: rgb(206, 206, 206); font-size: 10px; padding: 10px 20px;">9</button>
   <button id="button10" style="background-color: white; border: none; color: rgb(206, 206, 206); font-size: 10px; padding: 10px 20px;">10</button>
-  <button id="button11" style="background-color: white; border: none; color: rgb(206, 206, 206); font-size: 10px; padding: 10px 20px;">11</button>
-  <button id="button12" style="background-color: white; border: none; color: rgb(206, 206, 206); font-size: 10px; padding: 10px 20px;">12</button>
-  <button id="button13" style="background-color: white; border: none; color: rgb(206, 206, 206); font-size: 10px; padding: 10px 20px;">13</button>
-	
+  
 
 <textarea id="code-1" style="display: none;">
 NumList=[]
@@ -72,344 +69,129 @@ print(i,end=" ")
 </textarea>
 
   
-<textarea id="code-4" style="display: none;">
-
-    
-<html>
-<body>
-<button onMouseOver="mouseOver()" onMouseOut="mouseOut()" class="btn">mouse over</button>
-</body> 
-<script> 
-const btn=document.querySelector('.btn') 
-function mouseOver(e)
-{ 
-btn.style.backgroundColor="red" 
-btn.textContent="over"
-} 
-function mouseOut()
-{ 
-btn.style.backgroundColor="green" 
-btn.textContent="out"
-}
-</script>
-</html>
+<textarea id="code-4" style="display: none;">  
+  n = []
+  value=int(input('enter the size of array')) 
+  for x in range(value):
+  num=int(input('enter the elements'))
+  n.append(num)
+  primes = []
+  for i in n:
+  for j in range(2, int(i ** 0.5) + 1):
+  if i%j == 0:
+  break
+  else:
+  primes.append(i)
+  if(len(primes)==0):
+  print('no prime numbers')
+  print(primes)
+</textarea>
 
 
-  </textarea>
-  <textarea id="code-5" style="display: none;">
-
-      <html> 
-      <head> 
-      <title>Mathematical Expression</title> 
-      <Script language="javascript"> 
-      function math() 
-      { 
-      var x=document.form1.exptext.value; 
-      var result=eval(x); 
-      document.form1.resulttext.value=result; 
-      } 
-      </script> 
-      </head> 
-      <body> 
-      <form name="form1"> 
-      <table> 
-      <tr> 
-      <td>Expression</td> 
-      <td><input type="text" name="exptext"/></td> 
-      </tr> 
-      <tr> 
-      <td></td><td><input type="button" value="calculate" onclick="math()"/></td> 
-      </tr> 
-      <tr> 
-      <td>Result</td> 
-      <td><input type="text" name="resulttext"/></td> 
-      </tr> 
-      </table> 
-      </form> 
-      </body> 
-      </html>
-    
-
-
+<textarea id="code-5" style="display: none;">
+  def recur_fibo(n): if n<=1:
+  return n
+  else:
+  return(recur_fibo(n-1)+recur_fibo(n-2)) 
+  nterms=int(input("How many terms:"))
+  if nterms<=0:
+  print("Please enter a positive integer")
+  else:
+  print("Fibonacci sequence:") 
+  for i in range(nterms): 
+  print(recur_fibo(i))
   </textarea>
 
 <textarea id="code-6" style="display: none;">
 
-    <html> 
-    <body> 
-    <script language="JavaScript"> 
-      alert("error!!!click ok to continue"); 
-    </script> 
-    </body> 
-    </html>
- 
-
+  def compute_gcd(x, y):
+  while(y):
+  x, y=y, x % y
+  return x
+  def compute_lcm(x, y):
+  lcm = (x*y)//compute_gcd(x,y)
+  return lcm
+  num1 = int(input('enter the first number')) 
+  num2 = int(input('enter the second number'))
+  print("the L.C.M. is", compute_lcm(num1, num2)) 
+  print("the G.C.D. is", compute_gcd(num1,num2))
 
 </textarea>
 
 <textarea id="code-7" style="display: none;">
-
-    <html> 
-    <script language="Javascript">
-    function fact() 
-    { 
-    var f=1,i; var n=prompt("enter the number"); 
-    for(i=1;i<=n;i++) 
-    var f=f*i; 
-    document.write(f) 
-    } fact(); 
-    </script> 
-    </html>
-   
-
+try:
+f1=open(1.txt',"r")
+f2=open("2.txt","w")
+for line in f1:
+ f2.write(line.upper())
+except EOFError:
+print('EOFError')
+except NameError:
+print("NameError Occurred and Handled")
+except FileNotFoundError:
+print('FileNotFoundError')
 
 </textarea>
 
 <textarea id="code-8" style="display: none;">
 
-
-    <html> 
-    <body> 
-    <script language="JavaScript"> 
-    var a=new Array(); var i,sum=0; 
-    var n=prompt("Enter the limit"); 
-    for(i=0;i<n;i++) { 
-    a[i]=prompt("Enter the element"+i); 
-    } 
-    document.write("The array elements are,"); 
-    for(i=0;i<n;i++) 
-    document.write("<br>"+a[i]); 
-    for(i=0;i<n;i++) 
-    sum+=parseInt(a[i]); 
-    document.write("<br>The sum of array="+sum); 
-    </script> 
-    </body> 
-    </html>
-  
-  
-  
+def f(x,p,num):
+return pow(x,p)-num
+def f_prime(x,p):
+return p*pow(x,p-1)
+def root(num,p):
+left= -num
+right =num
+x=0
+while(True):
+x=(left +right) /2.0
+value=f(x,p,num) 
+prime=f_prime(x,p)
+if(value * prime <=0):
+left =x; else:
+right=x;
+if(value <0.000001 and value >=0):
+return x;
+if __name__== "__main__":
+P=int(input('enter the number'))
+N=2
+ans =root(P,N)
+print(ans)
 
 </textarea>
 
 <textarea id="code-9" style="display: none;">
-  
-    <html> 
-    <head> 
-    <title>Document</title> 
-    <style> .form{ 
-    display: grid; 
-    place-items: center; 
-    } 
-    .form>input{ border: 4px 
-    solid #5194a5; 
-    } 
-    </style> <script> 
-    function handleSubmit(e){ 
-    if(e.email.value===''||e.pass.value==='') 
-    alert('enter email and password correctly') 
-    } 
-    </script> 
-    </head> 
-    <body > 
-    <form class="form" > 
-    <label for="email">Email</label> 
-    <input name="email" type="email" id="email"> 
-    <label for="password">Password</label> 
-    <input name="pass" id="password" type="password"> 
-    <input type="submit" value="submit" onclick="handleSubmit(this.form)"> 
-    </form> 
-    </body> 
-    </html>
-
-
+from tkinter import* 
+def LoginPage():
+login_screen=Tk()
+login_screen.title("Login") 
+login_screen.geometry("300x250")
+Label(login_screen,text="Enetr the login detailes ?").pack()
+Label(login_screen,text="").pack()
+Label(login_screen,text="Username:").pack()
+username_login_entry=Entry(login_screen,textvariable="username") username_login_entry.pack()
+Label(login_screen,text="").pack()
+Label(login_screen,text="Password:").pack()
+password__login_entry=Entry(login_screen,textvariable="password", show='*')
+password__login_entry.pack()
+Label(login_screen,text="").pack()
+Button(login_screen,text="Login",width=10,height=1).pack()
+LoginPage()
 
 </textarea>
 
 <textarea id="code-10" style="display: none;">
   
-  college.html 
-  <html> 
-  <frameset rows="40%,60%"> 
-  <frame src="frame1.html"> <frame 
-  src="frame2.html"> 
-  </frameset> 
-  </html> 
-
-
-
-  /* frame1.html */
-  
-
-  <html> 
-  <body background="abc.jpg" height="400" width="300"> 
-  <font face="arial" color="red" size="6"> 
-  <center><b><u>NAVAJYOTHI COLLEGE</u></b></center> 
-  </center><b>CHERUPUZHA</b></center></font> 
-  <font face="AR BLANCA" color="black" size="6"> 
-  <caption><b><u>About us </u></b></caption></font><br> 
-  <font size="5" color="black"><br> 
-  <b>Navajyothi is an arts and science college affiliated to kannur university....</b></font> 
-  <font face="AR BLANCA" color="orange" size="6"> 
-  <caption><b><u>details</u></b></caption></font><br> 
-  </html> 
-
-
-
-
-  /* frame2.html*/ 
-
-
-
-  <html> 
-  <body background="xyz.jpg" height="400" width="300"> 
-  <font size="5"><br> 
-  Click on links for more details 
-  <ol> 
-  <li><a href="frame1.html">College</a></li><br> 
-  </ol> 
-  </font> 
-  </body> 
-  </html>
-
-
+import matplotlib.pyplot as plt import numpy as np x=np.linspace(-2,2,100)
+y=x**2
+g=plt.figure(figsize=(12,7))
+plt.plot(x,y) 
+plt.title('Equation Plot')
+plt.xlabel('x axis')
+plt.ylabel('y axis')
+plt.show()
 </textarea>
 
-<textarea id="code-11" style="display: none;">
-  
-    <script language="javascript">
-    function check(f)
-    {
-    var i=0;
-    if(f.fname.value=="")
-    {
-    alert ("name can't be blank");
-    }
-    if(f.lname.value=="")
-    {
-    alert("enter the last name");
-    }
-    if(f.fname.value=="")
-    {
-    alert ("name can't be blank");
-    }
-    20
-    if(f.sex[0].checked==""&& f.sex[1].checked=="")
-    { alert("enter the gender");
-    }
-    if(f.date.value=="")
-    {
-    alert ("enter date");
-    }
-    if(f.country.value=="")
-    {
-    alert("select the country");
-    }
-    if(f.pass.value=="")
-    {
-    alert("enter the password");
-    }
-    if(f.cpass.value=="")
-    {
-    alert("re enter the password");
-    } 
-    21
-    if(f.pass.value!==f.cpass.value)
-    { 
-    alert("password not matching");
-    }
-    }
-    </script>
-    <html>
-    <form>
-    Name:<input type="text" name="fname"><br>
-    lastName:<input type="text" name="lname"><br>
-    gender:<input type="radio" value="male" name="sex">male
-    <input type="radio" value="female"name="sex">female<br>
-    date of birth:<input type="date" name="date"><br>
-    <tr><td>select country</td><td><select name="country"><br>
-    <option></option>
-    <option>india</option>
-    <option>uae</option>
-    <option>usa</option>
-    </select></td></tr><br>
-    <tr><td>password:</td>
-    <td><input type="password" name="pass"></td></tr><br>
-    <tr><td>confirm password</td>
-    <td><input type="password" name="cpass"></td></tr><br>
-    </center>
-    <center><input type="button" value="cancel" name="cancel">
-    <input type="submit" value="submit" onClick="check(this.form)">
-    </center>
-    </form>
-    </html>
-
-
-</textarea>
-
-<textarea id="code-12" style="display: none;">
-  
-    <html> 
-    <script language="JavaScript"> 
-    var i,j,p; var c=prompt("Enter lower limit"); 
-    var b=prompt("Enter upper limit"); 
-    var a=parseInt(c); 
-    for(i=a;i<=b;i++) 
-    { p=0; 
-    for(j=2;j<=i/2;j++) 
-     { 
-    if(i%j==0) 
-    p=1; 
-     } 
-    if(p==0) document.write(i+","); 
-    } 
-    </script> 
-    <body> 
-    </body> 
-    </html>
-
-
-</textarea>
-
-<textarea id="code-13" style="display: none;">
-  
-/* form .php*/ 
-
-
-
-<?php
-?> 
-<html> 
-<head> 
-<title>Form processing</title> 
-</head> 
-<body> 
-<form action="welcome.php" method="post"> 
-Name:<input type="text" name="name"><br> 
-email:<input type="text" name="email"><br> 
-<input type="submit"> 
-</form> 
-</body> 
-</html> 
-
-
-
-/* welcome.php*/ 
-
-
-
-
-<?php 
-?> 
-<html> 
-<body> 
-Welcome &nbsp;<?php echo $_POST["name"];?><br> your 
-email address is:&nbsp;<?php echo $_POST["email"];?> 
-</body> 
-</html>
-
-
-
-</textarea>
 
 
 
