@@ -43,78 +43,77 @@ print(i,end=" ")
 </textarea>
 
 <textarea id="code-3" style="display: none;">
-  def binary_search(arr,a,low,high): 
-  while low<=high:
-  mid=low+(high-low)//2 
-  if arr[mid]==a:
-  return mid
-  elif arr[mid]<a: 
-  low=mid+1
-  else:
-  high=mid-1 return -1
-  i=int(input('enter the size of array')) 
-  arr=[]
-  for x in range(i): 
-  num=int(input('enter the numbers')) 
-  arr.append(num)
-  a = int(input('enter the element to find'))
-  print("the given array is",arr)
-  print("element to be found is",a) 
-  index=binary_search(arr,a,0,len(arr)-1)
-  
-  if index !=-1:
-  print("the index of the element is " + str(index)) 
-  else:
-  print("element not found")
+def binary_search(arr,a,low,high): 
+while low<=high:
+mid=low+(high-low)//2 
+if arr[mid]==a:
+return mid
+elif arr[mid]<a: 
+low=mid+1
+else:
+high=mid-1 return -1
+i=int(input('enter the size of array')) 
+arr=[]
+for x in range(i): 
+num=int(input('enter the numbers')) 
+arr.append(num)
+a = int(input('enter the element to find'))
+print("the given array is",arr)
+print("element to be found is",a) 
+index=binary_search(arr,a,0,len(arr)-1) 
+if index !=-1:
+print("the index of the element is " + str(index)) 
+else:
+print("element not found")
 </textarea>
 
   
 <textarea id="code-4" style="display: none;">  
-  n = []
-  value=int(input('enter the size of array')) 
-  for x in range(value):
-  num=int(input('enter the elements'))
-  n.append(num)
-  primes = []
-  for i in n:
-  for j in range(2, int(i ** 0.5) + 1):
-  if i%j == 0:
-  break
-  else:
-  primes.append(i)
-  if(len(primes)==0):
-  print('no prime numbers')
-  print(primes)
+n = []
+value=int(input('enter the size of array')) 
+for x in range(value):
+num=int(input('enter the elements'))
+n.append(num)
+primes = []
+for i in n:
+for j in range(2, int(i ** 0.5) + 1):
+if i%j == 0:
+break
+else:
+primes.append(i)
+if(len(primes)==0):
+print('no prime numbers')
+print(primes)
 </textarea>
 
 
 <textarea id="code-5" style="display: none;">
-  def recur_fibo(n): if n<=1:
-  return n
-  else:
-  return(recur_fibo(n-1)+recur_fibo(n-2)) 
-  nterms=int(input("How many terms:"))
-  if nterms<=0:
-  print("Please enter a positive integer")
-  else:
-  print("Fibonacci sequence:") 
-  for i in range(nterms): 
-  print(recur_fibo(i))
+def recur_fibo(n): if n<=1:
+return n
+else:
+return(recur_fibo(n-1)+recur_fibo(n-2)) 
+nterms=int(input("How many terms:"))
+if nterms<=0:
+print("Please enter a positive integer")
+else:
+print("Fibonacci sequence:") 
+for i in range(nterms): 
+print(recur_fibo(i))
   </textarea>
 
 <textarea id="code-6" style="display: none;">
 
-  def compute_gcd(x, y):
-  while(y):
-  x, y=y, x % y
-  return x
-  def compute_lcm(x, y):
-  lcm = (x*y)//compute_gcd(x,y)
-  return lcm
-  num1 = int(input('enter the first number')) 
-  num2 = int(input('enter the second number'))
-  print("the L.C.M. is", compute_lcm(num1, num2)) 
-  print("the G.C.D. is", compute_gcd(num1,num2))
+def compute_gcd(x, y):
+while(y):
+x, y=y, x % y
+return x
+def compute_lcm(x, y):
+lcm = (x*y)//compute_gcd(x,y)
+return lcm
+num1 = int(input('enter the first number')) 
+num2 = int(input('enter the second number'))
+print("the L.C.M. is", compute_lcm(num1, num2)) 
+print("the G.C.D. is", compute_gcd(num1,num2))
 
 </textarea>
 
